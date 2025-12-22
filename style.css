@@ -19,7 +19,7 @@ body {
   height: 460px;
   border-radius: 20px;
 
-  background-image: url("./card-bg.png");
+  background-image: url("./assets/card-bg.png");
   background-size: cover;
   background-position: center;
 
