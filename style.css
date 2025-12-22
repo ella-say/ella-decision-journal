@@ -27,3 +27,17 @@ body {
   cursor: pointer;
   user-select: none;
 }
+.card-front {
+  width: 260px;
+  height: 420px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  line-height: 1.6;
+}
+
