@@ -1,105 +1,119 @@
+/* =========================
+   Ella Card - style.css
+   極簡留白版（單一背景＋文字抽卡）
+   ========================= */
+
+/* 全域盒模型，避免尺寸計算混亂 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 頁面背景與置中 */
 body {
   margin: 0;
-  background: #f5f5f2;
+  background: #f5f5f2; /* 你現在的米白底 */
   font-family: "Noto Serif TC", serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 24px;
 }
 
+/* 卡片外層容器（可擴充用，目前先保留） */
 .card-area {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* 卡片本體（你 HTML 的 #card） */
 .card-back {
-  position: relative;
   width: 300px;
   height: 460px;
   border-radius: 20px;
 
+  /* 你的背景圖（同層目錄：card-bg.png） */
   background-image: url("./card-bg.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 
-  display: flex;
+  /* 視覺質感 */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
-  /* ✅ B版：文字往下 */
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 56px;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-.card-back::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-.card-back { cursor: pointer; }
-
-  width: 100%;
-  height: 45%;
-
-  background: linear-gradient(
-    to top,
-    rgba(255,255,255,0.75),
-    rgba(255,255,255,0.45),
-    rgba(255,255,255,0)
-  );
-
-  border-radius: 0 0 20px 20px;
-}
-
-
-.card-front {
-  width: 260px;
-  height: 420px;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  text-align: center;
-  line-height: 1.6;
-  }
-.card-text{
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.75;
-  letter-spacing: 0.08em;
-  color: #2b2b2b;
-  padding: 0 28px 32px;
-  .card-text { pointer-events: none; }
-
-
-  /* 淡入用 */
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 480ms ease, transform 480ms ease;
+  /* 讓文字能放在卡片內 */
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+
+  /* 點擊手感 */
+  cursor: pointer;
+  user-select: none;
+
+  /* 小小的互動感（不浮誇） */
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
-  /* 讓字壓在底圖也清楚但很淡 */
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
+.card-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.10);
 }
-.card-text.is-show{
-  opacity: 1;
-  transform: translateY(0);
+
+.card-back:active {
+  transform: translateY(0px) scale(0.995);
 }
+
+/* 卡片文字（你 HTML 的 #cardText） */
 .card-text {
-  opacity: 1;
-  transition: opacity .25s ease;
+  /* 重要：不要吃掉點擊，點到文字也算點到卡片 */
+  pointer-events: none;
+
+  /* 文字位置：靠下、置中 */
+  position: absolute;
+  left: 50%;
+  bottom: 58px;
+  transform: translate(-50%, 4px);
+
+  /* 文字樣式：乾淨、不做作 */
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.06em; /* 中文不要用 2px，會像被拉開靈魂 */
+  color: #333;
+  text-align: center;
+
+  /* 文字寬度（避免太長爆版） */
+  width: 78%;
+  word-break: keep-all;
+
+  /* 抽卡動畫：初始淡淡的 */
+  opacity: 0.25;
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
+/* app.js 會加上 is-show，讓文字「浮現」 */
 .card-text.is-show {
   opacity: 1;
+  transform: translate(-50%, 0px);
+}
+
+/* 小螢幕（手機）自動縮放，不要超出 */
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+  .card-back {
+    width: 280px;
+    height: 430px;
+    border-radius: 18px;
+  }
+  .card-text {
+    bottom: 54px;
+    font-size: 17px;
+    width: 80%;
+  }
 }
 
 
