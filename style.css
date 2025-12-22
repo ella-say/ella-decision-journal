@@ -89,6 +89,14 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.card-text {
+  opacity: 1;
+  transition: opacity .25s ease;
+}
+
+.card-text.is-show {
+  opacity: 1;
+}
 
 
 
