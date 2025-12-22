@@ -1,6 +1,7 @@
 // 取得卡片元素
 const cardEl = document.getElementById("card");
 const textEl = document.getElementById("cardText");
+console.log("cardEl:", cardEl, "textEl:", textEl);
 
 // 先給使用者提示
 textEl.textContent = "點一下";
