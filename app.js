@@ -1,22 +1,53 @@
-const textEl = document.querySelector(".card-text");
-const cardEl = document.querySelector(".card-back"); // 你原本如果不是 .card-back，就不要改這行
+// 取得卡片元素
+const cardEl = document.getElementById("card");
+const textEl = document.getElementById("cardText");
 
+// 先給使用者提示
+textEl.textContent = "點一下";
+
+// cards 先宣告成空陣列（避免 not defined）
+let cards = [];
+
+// 載入 cards.json
+async function loadCards() {
+  try {
+    const res = await fetch("./cards.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`cards.json 載入失敗：${res.status}`);
+    cards = await res.json();
+
+    // 基本檢查
+    if (!Array.isArray(cards) || cards.length === 0) {
+      throw new Error("cards.json 不是陣列或內容是空的");
+    }
+
+    // 載入成功後提示
+    textEl.textContent = "點一下抽一張";
+  } catch (err) {
+    console.error(err);
+    textEl.textContent = "載入失敗（看主控台）";
+  }
+}
+
+// 點擊抽卡
 cardEl.addEventListener("click", () => {
   if (!cards || cards.length === 0) return;
 
   const randomIndex = Math.floor(Math.random() * cards.length);
   const card = cards[randomIndex];
 
-  // ✅ 先讓文字消失
+  // 兼容你的 cards.json 欄位：text
+  const newText = card.text ?? "（這張卡沒有文字）";
+
+  // 簡單的小動畫：先移除再加回 class
   textEl.classList.remove("is-show");
+  textEl.textContent = newText;
 
-  // ✅ 換文字
-  textEl.textContent = card.text;
-
-  // ✅ 再淡入（穩定觸發）
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       textEl.classList.add("is-show");
     });
   });
 });
+
+// 開頁就載入
+loadCards();
