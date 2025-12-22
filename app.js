@@ -1,10 +1,19 @@
-const cards = [
-  "assets/cards/001.png",
-  "assets/cards/002.png",
-  "assets/cards/003.png"
-];
+const cardEl = document.getElementById("card");
 
-document.getElementById("draw").addEventListener("click", () => {
-  const card = cards[Math.floor(Math.random() * cards.length)];
-  document.getElementById("card").src = card;
+let cards = [];
+
+fetch("cards.json")
+  .then(res => res.json())
+  .then(data => {
+    cards = data;
+  });
+
+cardEl.addEventListener("click", () => {
+  if (cards.length === 0) return;
+
+  const randomIndex = Math.floor(Math.random() * cards.length);
+  const card = cards[randomIndex];
+
+  cardEl.className = "card-front";
+  cardEl.textContent = card.text;
 });
