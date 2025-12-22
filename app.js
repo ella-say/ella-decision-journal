@@ -15,6 +15,7 @@ async function loadCards() {
     const res = await fetch("./cards.json", { cache: "no-store" });
     if (!res.ok) throw new Error(`cards.json 載入失敗：${res.status}`);
     cards = await res.json();
+console.log("cards loaded:", cards);
 
     // 基本檢查
     if (!Array.isArray(cards) || cards.length === 0) {
@@ -30,7 +31,8 @@ async function loadCards() {
 }
 
 // 點擊抽卡
-cardEl.addEventListener("click", () => {
+cardEl.addEventListener("click", () => {console.log("clicked, cards length:", cards?.length);
+
   if (!cards || cards.length === 0) return;
 
   const randomIndex = Math.floor(Math.random() * cards.length);
