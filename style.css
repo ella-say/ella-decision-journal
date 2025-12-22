@@ -1,22 +1,29 @@
 body {
-  background: #f2f2ef;
-  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  background: #f5f5f2;
+  font-family: "Noto Serif TC", serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-#app {
-  text-align: center;
+.card-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#card {
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+.card-back {
+  width: 260px;
+  height: 420px;
+  border-radius: 12px;
+  background: #eaeaea;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  cursor: pointer;
+  user-select: none;
 }
