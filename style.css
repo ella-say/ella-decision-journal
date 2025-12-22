@@ -24,8 +24,9 @@ body {
   background-position: center;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  padding-bottom: 56px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 
 }
