@@ -1,126 +1,113 @@
-/* =========================
-   Ella Card - style.css
-   極簡留白版（單一背景＋文字抽卡）
-   ========================= */
-
-/* 全域盒模型，避免尺寸計算混亂 */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+:root{
+  --bg:#f7f7f2;
+  --paper:#ffffff;
+  --ink:#1f241f;
+  --muted:#6c746c;
+  --line:#dfe4db;
+  --accent:#dce8aa;
+  --accent-ink:#334018;
+  --soft:#eef2e7;
+  --max:1120px;
 }
-
-/* 頁面背景與置中 */
-body {
-  margin: 0;
-  background: #f5f5f2; /* 你現在的米白底 */
-  font-family: "Noto Serif TC", serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 24px;
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  line-height:1.75;
 }
-
-/* 卡片外層容器（可擴充用，目前先保留） */
-.card-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+a{color:inherit}
+.shell{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+.site-header{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding:18px max(20px,calc((100% - var(--max))/2));
+  background:rgba(247,247,242,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
 }
-
-/* 卡片本體（你 HTML 的 #card） */
-.card-back {
-  width: 300px;
-  height: 460px;
-  border-radius: 20px;
-
-  /* 你的背景圖（同層目錄：card-bg.png） */
-  background-image: url("./card-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* 視覺質感 */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-
-  /* 讓文字能放在卡片內 */
-  position: relative;
-  overflow: hidden;
-
-  /* 點擊手感 */
-  cursor: pointer;
-  user-select: none;
-
-  /* 小小的互動感（不浮誇） */
-  transition: transform 120ms ease, box-shadow 120ms ease;
+.brand{text-decoration:none;font-weight:800;letter-spacing:-.02em}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:.94rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:92px 0 70px}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.16em;color:#7c873a;margin:0 0 14px}
+h1,h2,h3{line-height:1.25;letter-spacing:-.035em;margin-top:0}
+h1{font-size:clamp(2.7rem,7vw,5.4rem);max-width:900px;margin-bottom:24px}
+h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:16px}
+h3{font-size:1.3rem;margin-bottom:10px}
+.lead{font-size:clamp(1.08rem,2vw,1.35rem);max-width:820px;color:#404840}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 18px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:750;
+  border:1px solid var(--line);
 }
-
-.card-back:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.10);
+.button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.button.ghost{background:transparent}
+.fineprint{font-size:.88rem;color:var(--muted)}
+.section{padding:72px 0;border-top:1px solid var(--line)}
+.section-title{margin-bottom:30px}
+.grid{display:grid;gap:18px}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px;
 }
-
-.card-back:active {
-  transform: translateY(0px) scale(0.995);
+.card p{color:var(--muted);margin-bottom:0}
+.num{display:inline-block;font-weight:850;color:#87914d;margin-bottom:28px}
+.steps{display:grid;gap:12px}
+.step{
+  display:grid;grid-template-columns:52px 1fr;gap:18px;
+  padding:22px 0;border-bottom:1px solid var(--line)
 }
-
-/* 卡片文字（你 HTML 的 #cardText） */
-.card-text {
-  /* 重要：不要吃掉點擊，點到文字也算點到卡片 */
-  pointer-events: none;
-
-  /* 文字位置：靠下、置中 */
-  position: absolute;
-  left: 50%;
-  bottom: 58px;
-  transform: translate(-50%, 4px);
-
-  /* 文字樣式：乾淨、不做作 */
-  font-size: 18px;
-  line-height: 1.8;
-  letter-spacing: 0.06em; /* 中文不要用 2px，會像被拉開靈魂 */
-  color: #333;
-  text-align: center;
-
-  /* 文字寬度（避免太長爆版） */
-  width: 78%;
-  word-break: keep-all;
-
-  /* 抽卡動畫：初始淡淡的 */
-  opacity: 0.25;
-  transition: opacity 220ms ease, transform 220ms ease;
+.step>span{
+  width:42px;height:42px;display:grid;place-items:center;
+  background:var(--accent);color:var(--accent-ink);border-radius:50%;font-weight:900
 }
-
-/* app.js 會加上 is-show，讓文字「浮現」 */
-.card-text.is-show {
-  opacity: 1;
-  transform: translate(-50%, 0px);
+.step p{margin:0;color:var(--muted);max-width:780px}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.tool-list{border-top:1px solid var(--line)}
+.tool-list>div{
+  display:grid;grid-template-columns:120px 1fr;gap:22px;
+  padding:18px 0;border-bottom:1px solid var(--line)
 }
-
-/* 小螢幕（手機）自動縮放，不要超出 */
-@media (max-width: 480px) {
-  body {
-    padding: 16px;
-  }
-  .card-back {
-    width: 280px;
-    height: 430px;
-    border-radius: 18px;
-  }
-  .card-text {
-    bottom: 54px;
-    font-size: 17px;
-    width: 80%;
-  }
+.tool-list span{color:var(--muted)}
+.row{display:flex;align-items:end;justify-content:space-between;gap:24px}
+.section-note{color:var(--muted);margin:0}
+.article-list{display:grid;gap:12px}
+.article{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  padding:24px;border:1px solid var(--line);background:var(--paper);border-radius:20px;
+  text-decoration:none
 }
-.footer-note {
-  margin-top: 20px;
-  font-size: 13px;
-  color: rgba(0,0,0,0.35);
-  text-align: center;
+.article:hover{border-color:#aeb982;transform:translateY(-1px)}
+.article p{margin:6px 0 0;color:var(--muted)}
+.article.muted{opacity:.68}
+.tag{
+  display:inline-block;font-size:.78rem;font-weight:800;color:var(--accent-ink);
+  background:var(--accent);padding:5px 9px;border-radius:999px;margin-bottom:9px
 }
-
-
-
+.arrow{font-size:1.8rem}
+.service-box{
+  background:#20251f;color:#f5f6ef;border-radius:28px;padding:38px;
+}
+.service-box .eyebrow{color:#dbe7a7}
+.service-box p{color:#c8cec5}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.service-grid>div{border:1px solid #424a40;border-radius:18px;padding:22px}
+.service-grid strong{font-size:1.1rem}
+.service-grid ul{margin:12px 0 0;padding-left:20px;color:#d6dbd3}
+.status{margin-top:24px!important;color:#f0f3e8!important;font-weight:700}
+.about p{max-width:800px;font-size:1.08rem;color:#4d554d}
+.site-footer{padding:36px 0 60px;border-top:1px solid var(--line)}
+.site-footer p{margin:4px 0}
+@media(max-width:820px){
+  .site-header{align-items:flex-start;flex-direction:column}
+  nav{gap:12px}
+  .hero{padding-top:64px}
+  .grid.three,.split,.service-grid{grid-template-columns:1fr}
+  .split{gap:24px}
+  .row{display:block}
+  .tool-list>div{grid-template-columns:1fr;gap:2px}
+}
