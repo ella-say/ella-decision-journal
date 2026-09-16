@@ -2,180 +2,329 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ec">
   <title>Ella Decision Journal｜把卡住的問題拆清楚</title>
-  <meta name="description" content="把生活裡卡住的問題拆成：發生什麼、真正卡在哪、有哪些選擇、要付什麼代價、下一步怎麼走。">
+  <meta name="description" content="工作、關係、副業、人生方向卡住時，先把問題拆清楚，再決定下一步。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top">Ella Decision Journal</a>
+    <a class="brand" href="#top" aria-label="回首頁">
+      <span class="brand-mark">E</span>
+      <span>
+        <strong>Ella Decision Journal</strong>
+        <small>把生活看清楚，再決定下一步</small>
+      </span>
+    </a>
+
     <nav class="desktop-nav" aria-label="主要導覽">
-      <a href="#start">開始整理</a>
+      <a href="#problems">你卡在哪</a>
       <a href="#journal">最近在想</a>
-      <a href="#method">我的方法</a>
-      <a href="#about">關於 Ella</a>
+      <a href="#method">怎麼拆問題</a>
+      <a class="nav-cta" href="#start">開始整理</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero shell">
-      <p class="eyebrow">把生活看清楚，再決定下一步</p>
-      <h1>有些問題，<br>不是缺一個答案，<br>是還沒把自己看清楚。</h1>
-      <p class="lead">
-        工作、轉職、副業、關係、生活方向卡住時，我會先把事情講清楚：
-        <strong>發生什麼、真正卡在哪、有哪些選擇、要付什麼代價、下一步能做什麼。</strong>
-      </p>
-      <div class="hero-actions">
-        <a class="button primary" href="#start">我現在也卡住了</a>
-        <a class="button ghost" href="#journal">先看看 Ella 最近在想什麼</a>
+      <div class="hero-copy">
+        <p class="eyebrow">ELLA DECISION JOURNAL</p>
+        <h1>有些問題，<br>不是缺一個答案。<br><span>是還沒把自己看清楚。</span></h1>
+        <p class="lead">
+          工作、轉職、副業、關係、生活方向卡住時，
+          我不急著叫你「相信自己」。
+          我會先把問題拆成：
+          <strong>發生什麼、真正卡在哪、有哪些選擇、要付什麼代價、下一步做什麼。</strong>
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#start">開始整理我的問題</a>
+          <a class="button secondary" href="#journal">先看 Ella 最近在想什麼</a>
+        </div>
+
+        <div class="trust-strip" aria-label="平台原則">
+          <span>不灌雞湯</span>
+          <span>不替你下決定</span>
+          <span>工具只是補盲點</span>
+          <span>最後一定落到行動</span>
+        </div>
       </div>
-      <p class="fineprint">AI、人類圖、奇門／易經是拿來看盲點，不替你做決定。</p>
     </section>
 
-    <section id="start" class="section shell">
-      <div class="section-head">
-        <p class="eyebrow">先從你的問題開始</p>
-        <h2>你最近卡在哪？</h2>
-        <p class="section-intro">不用先懂方法，也不用先知道答案。先選一個最像你現在狀態的。</p>
+    <section id="problems" class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">先不要想太多</p>
+          <h2>你最近卡在哪？</h2>
+        </div>
+        <p>不用先懂我的方法。先選一個最像你現在狀態的。</p>
       </div>
 
       <div class="problem-grid">
-        <a class="problem-card" href="#method">
-          <span class="problem-kicker">工作／轉職</span>
-          <h3>我很累，但我不知道換工作是不是答案。</h3>
+        <button class="problem-card" data-problem="工作／轉職" type="button">
+          <span class="problem-icon">01</span>
+          <span class="problem-label">工作／轉職</span>
+          <strong>我很累，但我不知道換工作是不是答案。</strong>
           <p>先拆：到底是工作本身、薪水、環境，還是已經沒有生活。</p>
-          <span class="card-cta">先看怎麼拆 →</span>
-        </a>
+          <span class="linkish">用這個問題開始整理 →</span>
+        </button>
 
-        <a class="problem-card" href="#method">
-          <span class="problem-kicker">副業／創作</span>
-          <h3>我一直想開始，但每次都停在準備。</h3>
-          <p>先拆：是沒時間、沒方向、怕做不好，還是其實想太多。</p>
-          <span class="card-cta">先看怎麼拆 →</span>
-        </a>
+        <button class="problem-card" data-problem="副業／創作" type="button">
+          <span class="problem-icon">02</span>
+          <span class="problem-label">副業／創作</span>
+          <strong>我一直想開始，但每次都停在準備。</strong>
+          <p>先拆：是沒時間、沒方向、怕做不好，還是想得比做得多。</p>
+          <span class="linkish">用這個問題開始整理 →</span>
+        </button>
 
-        <a class="problem-card" href="#method">
-          <span class="problem-kicker">關係／人際</span>
-          <h3>我總是在顧別人的感受，卻不知道自己要什麼。</h3>
+        <button class="problem-card" data-problem="關係／人際" type="button">
+          <span class="problem-icon">03</span>
+          <span class="problem-label">關係／人際</span>
+          <strong>我總是在顧別人的感受，卻不知道自己要什麼。</strong>
           <p>先拆：責任、愧疚、界線，哪一個正在把你耗乾。</p>
-          <span class="card-cta">先看怎麼拆 →</span>
-        </a>
+          <span class="linkish">用這個問題開始整理 →</span>
+        </button>
 
-        <a class="problem-card" href="#method">
-          <span class="problem-kicker">人生方向</span>
-          <h3>我懂很多、也想很多，但不知道力氣要放哪裡。</h3>
-          <p>先拆：你真正想要的生活，和你現在正在追的東西是不是同一件事。</p>
-          <span class="card-cta">先看怎麼拆 →</span>
-        </a>
+        <button class="problem-card" data-problem="人生方向" type="button">
+          <span class="problem-icon">04</span>
+          <span class="problem-label">人生方向</span>
+          <strong>我懂很多，也想很多，但不知道力氣要放哪裡。</strong>
+          <p>先拆：你想過的生活，和你現在追的東西是不是同一件事。</p>
+          <span class="linkish">用這個問題開始整理 →</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="start" class="section section-dark">
+      <div class="shell">
+        <div class="section-heading light">
+          <div>
+            <p class="eyebrow">開始整理</p>
+            <h2>先不要急著解決。<br>先把問題說清楚。</h2>
+          </div>
+          <p>這 5 題不用寫得漂亮，寫真的就好。</p>
+        </div>
+
+        <div class="workbench">
+          <aside class="workbench-side">
+            <p class="side-label">你目前選的是</p>
+            <div id="selectedProblem" class="selected-problem">還沒選，直接寫也可以</div>
+            <div class="progress-wrap" aria-label="填寫進度">
+              <span id="progressText">0 / 5</span>
+              <div class="progress"><i id="progressBar"></i></div>
+            </div>
+            <button id="clearForm" class="text-button" type="button">清空重來</button>
+          </aside>
+
+          <div class="questions">
+            <label class="question">
+              <span class="q-number">01</span>
+              <span class="q-copy">
+                <strong>現在到底發生什麼？</strong>
+                <small>先寫事實，不用急著解釋。</small>
+              </span>
+              <textarea data-q="1" placeholder="例如：我每天都想離職，但又怕換工作薪水更差。"></textarea>
+            </label>
+
+            <label class="question">
+              <span class="q-number">02</span>
+              <span class="q-copy">
+                <strong>我真正難受的是什麼？</strong>
+                <small>累、怕、委屈、沒希望，哪一個最接近？</small>
+              </span>
+              <textarea data-q="2" placeholder="例如：不是工作多，是我覺得每天都只剩工作。"></textarea>
+            </label>
+
+            <label class="question">
+              <span class="q-number">03</span>
+              <span class="q-copy">
+                <strong>我真正卡住的是哪一件事？</strong>
+                <small>把問題縮小到一件可以處理的事。</small>
+              </span>
+              <textarea data-q="3" placeholder="例如：我不知道自己如果離職，下一步可以去哪。"></textarea>
+            </label>
+
+            <label class="question">
+              <span class="q-number">04</span>
+              <span class="q-copy">
+                <strong>有哪些選擇，各要付什麼代價？</strong>
+                <small>留下、離開、先準備，每個選項都會有成本。</small>
+              </span>
+              <textarea data-q="4" placeholder="例如：先留下三個月準備履歷，代價是還要撐三個月。"></textarea>
+            </label>
+
+            <label class="question">
+              <span class="q-number">05</span>
+              <span class="q-copy">
+                <strong>我現在可以先做哪一小步？</strong>
+                <small>不要寫一年計畫，只寫下一步。</small>
+              </span>
+              <textarea data-q="5" placeholder="例如：這週先整理三個我願意投的職缺。"></textarea>
+            </label>
+
+            <div class="result-box">
+              <div>
+                <span class="mini-label">最後只留一件事</span>
+                <strong id="nextStepPreview">當你填完第 5 題，這裡會留下你的下一步。</strong>
+              </div>
+              <button id="copySummary" class="button inverse" type="button">複製我的整理</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="journal" class="section shell">
-      <div class="section-head inline-head">
+      <div class="section-heading">
         <div>
           <p class="eyebrow">Ella 最近在想什麼</p>
-          <h2>不裝懂，先把真實問題寫下來。</h2>
+          <h2>不是教你人生，<br>是把真的卡過的事寫清楚。</h2>
         </div>
-        <p class="section-note">長文、短想法、生活觀察都會放這裡。</p>
+        <p>長文、短想法、生活觀察，都放在這裡。</p>
       </div>
 
-      <div class="journal-list">
-        <a class="journal-card featured" href="posts/why-decision-journal.html">
-          <div>
-            <span class="tag">今天的想法</span>
-            <h3>我為什麼不想再給自己一句「相信自己」</h3>
-            <p>我後來發現，沒自信不是缺鼓勵，是缺證據。先做一個小實驗，比每天勸自己勇敢有用。</p>
+      <div class="journal-toolbar">
+        <div class="filters" role="group" aria-label="文章分類">
+          <button class="filter active" data-filter="all" type="button">全部</button>
+          <button class="filter" data-filter="work" type="button">工作與選擇</button>
+          <button class="filter" data-filter="create" type="button">創作與副業</button>
+          <button class="filter" data-filter="self" type="button">自我理解</button>
+          <button class="filter" data-filter="ai" type="button">AI 與思考</button>
+        </div>
+      </div>
+
+      <div class="journal-grid">
+        <a class="article-card featured" data-category="self create" href="posts/why-decision-journal.html">
+          <div class="article-meta">
+            <span class="tag">今天新增</span>
+            <span>自我理解</span>
           </div>
-          <span class="arrow">→</span>
+          <h3>我為什麼不想再給自己一句「相信自己」</h3>
+          <p>我後來發現，沒自信不一定是缺鼓勵，很多時候只是缺證據。先做一個小實驗，比每天逼自己勇敢有用。</p>
+          <span class="read-more">繼續看 →</span>
         </a>
 
-        <div class="journal-card">
-          <div>
-            <span class="tag soft">接下來會寫</span>
-            <h3>市場很多人在做，我還要不要開始？</h3>
-            <p>不是先找「差異化口號」，而是先看你能不能真的幫一個人把問題弄清楚。</p>
+        <article class="article-card" data-category="create">
+          <div class="article-meta">
+            <span class="tag muted">準備中</span>
+            <span>創作與副業</span>
           </div>
-        </div>
+          <h3>市場很多人在做，我還要不要開始？</h3>
+          <p>先不要急著找差異化。你能不能先真的幫一個人把問題弄清楚？</p>
+        </article>
 
-        <div class="journal-card">
-          <div>
-            <span class="tag soft">接下來會寫</span>
-            <h3>我不是不想寫，是下班後真的沒有腦。</h3>
-            <p>當工作把注意力吃光，問題不是自律，而是你有沒有替自己留一點可以思考的空間。</p>
+        <article class="article-card" data-category="work self">
+          <div class="article-meta">
+            <span class="tag muted">準備中</span>
+            <span>工作與選擇</span>
           </div>
-        </div>
+          <h3>我不是不想寫，是下班後真的沒有腦。</h3>
+          <p>如果工作把注意力吃光，問題可能不是自律，而是你的生活已經沒有留白。</p>
+        </article>
+
+        <article class="article-card" data-category="ai self">
+          <div class="article-meta">
+            <span class="tag muted">準備中</span>
+            <span>AI 與思考</span>
+          </div>
+          <h3>AI 不是替我想，是逼我把模糊的地方講清楚。</h3>
+          <p>真正有用的不是叫 AI 給答案，而是拿它來反問、比較、找漏洞。</p>
+        </article>
       </div>
     </section>
 
     <section id="method" class="section shell">
-      <div class="section-head">
-        <p class="eyebrow">我現在怎麼處理一個卡住的問題</p>
-        <h2>不是先找答案，先把問題拆對。</h2>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Ella 的方法</p>
+          <h2>看見 → 拆開 → 對照 → 行動</h2>
+        </div>
+        <p>工具很多，但最後都要回到現實。</p>
       </div>
 
       <div class="method-grid">
-        <article class="method-card">
-          <span class="step-num">01</span>
+        <article>
+          <span>01</span>
           <h3>看見</h3>
-          <p>先把「到底發生什麼」講清楚，不急著解讀。</p>
+          <p>先把「發生什麼」講清楚，不急著替事情下結論。</p>
         </article>
-        <article class="method-card">
-          <span class="step-num">02</span>
+        <article>
+          <span>02</span>
           <h3>拆開</h3>
-          <p>把情緒、現實、選項、代價分開，不要全部混成一句「我很煩」。</p>
+          <p>情緒、現實、選項、代價分開，不要全部混成一句「我很煩」。</p>
         </article>
-        <article class="method-card">
-          <span class="step-num">03</span>
+        <article>
+          <span>03</span>
           <h3>對照</h3>
-          <p>再用 AI、人類圖、奇門／易經補盲點，工具只是鏡子，不是老闆。</p>
+          <p>AI、人類圖、奇門／易經可以補角度，但不替你拍板。</p>
         </article>
-        <article class="method-card">
-          <span class="step-num">04</span>
+        <article>
+          <span>04</span>
           <h3>行動</h3>
-          <p>最後只留下一件現在能做的事。不能做的建議，先不要。</p>
+          <p>最後留下一件現在能做的事。不能做的建議，先不要。</p>
         </article>
       </div>
 
-      <div class="five-questions">
-        <p class="eyebrow">Ella 卡點五問</p>
-        <ol>
-          <li>現在到底發生什麼？</li>
-          <li>我真正難受的是什麼？</li>
-          <li>我真正卡住的是哪一件事？</li>
-          <li>有哪些選擇，各要付什麼代價？</li>
-          <li>我現在可以先做哪一小步？</li>
-        </ol>
+      <div class="tool-note">
+        <strong>我的原則很簡單：</strong>
+        <p>現實條件先，工具補盲點。錢、時間、責任、身體、生活，永遠要算進去。</p>
       </div>
     </section>
 
-    <section id="about" class="section shell about">
-      <p class="eyebrow">關於 Ella</p>
-      <h2>我沒有想當「什麼都懂」的人。</h2>
-      <p>
-        我比較擅長的，是把一團亂的資料、情緒和選項，慢慢整理到看得懂。
-        這個網站就是我的公開思考筆記。我會把生活裡真的卡過的問題寫下來，
-        也把 AI、人類圖、奇門與易經當成不同角度的工具來看。
-      </p>
-      <p>
-        如果最後只剩一句「相信宇宙」或「相信自己」，我會覺得還不夠。
-        我比較在意的是：<strong>所以現在，到底能做什麼？</strong>
-      </p>
+    <section id="about" class="section shell">
+      <div class="about-card">
+        <div>
+          <p class="eyebrow">關於 Ella</p>
+          <h2>我沒有想當<br>「什麼都懂」的人。</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            我比較擅長的，是把一團亂的資料、情緒和選項，
+            慢慢整理到看得懂。
+          </p>
+          <p>
+            這個網站就是我的公開思考筆記。
+            我會把生活裡真的卡過的問題寫下來，
+            也把 AI、人類圖、奇門與易經當成不同角度的工具。
+          </p>
+          <p class="about-line">
+            如果最後只剩一句「相信自己」，我會覺得還不夠。
+            <strong>我比較在意的是：所以現在，到底能做什麼？</strong>
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer shell">
-    <strong>Ella Decision Journal</strong>
-    <p>把生活看清楚，再決定下一步。</p>
+    <div>
+      <strong>Ella Decision Journal</strong>
+      <p>把生活看清楚，再決定下一步。</p>
+    </div>
     <p class="fineprint">本站內容為自我整理與一般性資訊，不取代醫療、法律、心理、財務等專業意見。</p>
   </footer>
 
   <nav class="mobile-tabbar" aria-label="手機導覽">
-    <a href="#top"><span>首頁</span></a>
-    <a href="#journal"><span>文章</span></a>
-    <a class="tab-primary" href="#start"><span>開始整理</span></a>
-    <a href="#about"><span>關於</span></a>
+    <a href="#top">
+      <span class="tab-dot"></span>
+      <span>首頁</span>
+    </a>
+    <a href="#journal">
+      <span class="tab-dot"></span>
+      <span>文章</span>
+    </a>
+    <a class="tab-primary" href="#start">
+      <span class="tab-dot"></span>
+      <span>開始整理</span>
+    </a>
+    <a href="#about">
+      <span class="tab-dot"></span>
+      <span>關於</span>
+    </a>
   </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">已複製</div>
 
   <script src="app.js"></script>
 </body>
